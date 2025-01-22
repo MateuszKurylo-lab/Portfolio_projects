@@ -89,7 +89,9 @@ WHERE T1.`life expectancy` = '';
 
 
 SELECT *
-FROM world_life_expectancy;
+FROM world_life_expectancy;\
+
+--comparison of countries with the best life increase in recent years
 
 SELECT country, 
 MIN(`life expectancy`), 
@@ -100,6 +102,7 @@ GROUP BY Country
 HAVING MIN(`life expectancy`) <> 0 AND MAX(`life expectancy`) <> 0
 ORDER BY life_increase DESC;
 
+-- Avg life expectancy for whole world by year 
 
 SELECT YEAR, ROUND(AVG(`life expectancy`),1)
 FROM world_life_expectancy
@@ -108,6 +111,8 @@ AND `life expectancy` <> 0
 GROUP BY Year
 ORDER BY Year desc
 ;
+
+--looking for correlations between life expectancy and GDP
 
 SELECT Country, ROUND(AVG(`life expectancy`),2) AS life_exp, ROUND(AVG(GDP),1) AS GDP
 FROM world_life_expectancy
@@ -118,7 +123,7 @@ ORDER BY GDP;
 
 
 
-
+-- comapare Life expextancy in high and low GDP countries
 SELECT 
 SUM(CASE WHEN GDP >= 1500 THEN '1' ELSE '0' END) High_gdp_count,
 round(AVG (CASE WHEN GDP >= 1500 THEN `life expectancy` ELSE NULL END),1) High_gdp_Life_exp,
@@ -126,13 +131,16 @@ SUM(CASE WHEN GDP <= 1500 THEN '1' ELSE '0' END) Low_gdp_count,
 round(AVG (CASE WHEN GDP <= 1500 THEN `life expectancy` ELSE NULL END),1) Low_gdp_Life_exp
 FROM world_life_expectancy;
     
-    
+--Avg GDP for whole world 
+
 SELECT avg(gdp)
 FROM (
 SELECT gdp
 FROM world_life_expectancy
 where gdp <> 0
 ) as avg_gdp;
+
+--looking for correlations between life expectancy and BMI
 
 SELECT Country, ROUND(AVG(`life expectancy`),2) AS life_exp, ROUND(AVG(BMI),1) AS BMI
 FROM world_life_expectancy
@@ -142,13 +150,6 @@ AND BMI > 0
 ORDER BY BMI DESC;
 
 
-SELECT country, 
-year, 
-`life expectancy`,
-`adult mortality`,
-SUM(`adult mortality`) OVER(PARTITION BY country ORDER BY year) as death_increase
-FROM world_life_expectancy
-WHERE country LIKE '%unite%';
 
 
 
