@@ -1,7 +1,7 @@
 SELECT *
 FROM world_life_expectancy;
 
-#Looking for duplicates 
+--Looking for duplicates 
 
 SELECT *
 FROM(
@@ -19,7 +19,7 @@ FROM world_life_expectancy
 ) as tbl
 WHERE Row_num > 1;
 
-#Deleting duplicates
+--Deleting duplicates
  
 DELETE FROM world_life_expectancy
 WHERE Row_id IN (
@@ -33,13 +33,13 @@ FROM(
 	WHERE Row_num > 1);
 
 
-#looking for blanks
+--looking for blanks
 
 SELECT *
 FROM world_life_expectancy
 WHERE Status = '';
 
-#replacing blanks in status 
+--replacing blanks in status 
 
 UPDATE world_life_expectancy t1
 JOIN world_life_expectancy t2
@@ -50,14 +50,14 @@ AND t2.status <> ''
 AND t2.status = 'Developed'
 ;
 
-#searching for blanks in `life expectancy` column
+--searching for blanks in `life expectancy` column
 
 SELECT *
 FROM world_life_expectancy
 WHERE `life expectancy` = ''
 ;
 
-#replacing blanks with average from previous and next year
+--replacing blanks with average from previous and next year
 SELECT 
 t1.country, t1.Year, t1.`life expectancy`, 
 t2.country, t2.Year, t2.`life expectancy`, 
