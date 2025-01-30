@@ -1,0 +1,145 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "id": "e6fc4966-5725-42ee-9a13-ac32ed9c4a80",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "\n",
+    "\n",
+    "def add(x,y):\n",
+    "    return x + y\n",
+    "\n",
+    "def subtrack(x,y):\n",
+    "    return x - y\n",
+    "\n",
+    "def multiply(x,y):\n",
+    "    return x * y\n",
+    "\n",
+    "def divide(x,y):\n",
+    "    return x / y\n",
+    "\n",
+    "def percentage(x,y):\n",
+    "    return (x / y)*100"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 25,
+   "id": "85fa0c4b-dc4a-4cf1-a68d-a9f7c84d164a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter Choice (+,-,*,/):  *\n",
+      "Enter first number:  7\n",
+      "Entre second number:  8\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "56.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "choice = input('Enter Choice (+,-,*,/): ')\n",
+    "if choice in ('+','-','*','/'):\n",
+    "    num1 = float(input('Enter first number: '))\n",
+    "    num2 = float(input('Entre second number: '))\n",
+    "    \n",
+    "    if choice in ('+'):\n",
+    "        print(add(num1,num2))\n",
+    "    elif choice in ('-'):\n",
+    "        print(subtrack(num1,num2))\n",
+    "    elif choice in ('*'):\n",
+    "        print(multiply(num1,num2))\n",
+    "    elif choice in ('/'):\n",
+    "        print(divide(num1,num2))\n",
+    "else:\n",
+    "    print('Please enter correct choice')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "84067ce0-ae1f-4f85-87a6-e9e9483bceaf",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdin",
+     "output_type": "stream",
+     "text": [
+      "Enter Choice (+,-,*,/,%):  /\n",
+      "Enter first number:  5\n",
+      "Entre second number:  2\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Result:  2.5\n"
+     ]
+    }
+   ],
+   "source": [
+    "while True:\n",
+    "    choice = input('Enter Choice (+,-,*,/,%): ')\n",
+    "    \n",
+    "    if choice in ('+','-','*','/','%'):\n",
+    "        num1 = float(input('Enter first number: '))\n",
+    "        num2 = float(input('Entre second number: '))\n",
+    "        \n",
+    "        if choice in ('+'):\n",
+    "            print('Result: ',add(num1,num2))\n",
+    "        elif choice in ('-'):\n",
+    "            print('Result: ',subtrack(num1,num2))\n",
+    "        elif choice in ('*'):\n",
+    "            print('Result: ',multiply(num1,num2))\n",
+    "        elif choice in ('/'):\n",
+    "            print('Result: ',divide(num1,num2))\n",
+    "        elif choice in ('%'):\n",
+    "            print('Result: ',percentage(num1,num2),'%')\n",
+    "            \n",
+    "    else:\n",
+    "        print('Please enter correct choice')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "e51137e5-5e14-4fca-a9b4-de2f1908b92b",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
